@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Session Planning</title>
+
 <style>
 :root{
   --bg:#000;
@@ -15,14 +16,18 @@
   --accent2:#B266FF;
   --clubGlow: rgba(123,46,255,.18);
 }
+
 *{box-sizing:border-box}
+
 html,body{height:100%}
+
 body{
   margin:0;
   background:transparent;
   color:var(--text);
   font-family:Arial,sans-serif;
 }
+
 .stage{
   min-height:100vh;
   padding:22px;
@@ -32,6 +37,7 @@ body{
   position:relative;
   overflow:hidden;
 }
+
 .stage::before{
   content:"";
   position:absolute;
@@ -41,24 +47,27 @@ body{
   opacity:.18;
   pointer-events:none;
 }
+
 .wrap{
   max-width:980px;
   margin:0 auto;
   position:relative;
   z-index:2;
 }
+
 .teamName{
   font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;
   font-size:44px;
   text-transform:uppercase;
   letter-spacing:1px;
-  line-height:1;
 }
+
 .sub{
   margin-top:8px;
   color:var(--muted);
   font-size:14px;
 }
+
 .themeLine{
   margin-top:14px;
   height:4px;
@@ -68,6 +77,7 @@ body{
   position:relative;
   overflow:hidden;
 }
+
 .themeLine::before{
   content:"";
   position:absolute;
@@ -75,9 +85,8 @@ body{
   background:linear-gradient(120deg, rgba(255,255,255,0), rgba(255,255,255,.35), rgba(255,255,255,0));
   transform:translateX(-70%);
   animation:sweep 2.8s linear infinite;
-  opacity:.9;
-  pointer-events:none;
 }
+
 @keyframes sweep{
   0%{transform:translateX(-70%)}
   100%{transform:translateX(70%)}
@@ -93,30 +102,19 @@ body{
   overflow:hidden;
   box-shadow:0 20px 70px rgba(0,0,0,.58);
 }
-.card::before{
-  content:"";
-  position:absolute;
-  inset:-50% -20%;
-  transform:rotate(-12deg);
-  background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.05), rgba(255,255,255,0));
-  opacity:.28;
-  pointer-events:none;
-}
+
 .hRow{
   display:flex;
   justify-content:space-between;
-  gap:12px;
   align-items:flex-start;
-  position:relative;
-  z-index:2;
 }
+
 .hTitle{
   font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;
   font-size:22px;
   text-transform:uppercase;
-  letter-spacing:.8px;
-  margin:0;
 }
+
 .pill{
   font-size:11px;
   font-weight:900;
@@ -126,119 +124,62 @@ body{
   border-radius:999px;
   border:1px solid rgba(255,255,255,.14);
   background:rgba(255,255,255,.04);
-  color:rgba(255,255,255,.86);
-  white-space:nowrap;
 }
+
 .pill.accent{
   border-color:color-mix(in srgb, var(--accent) 60%, transparent);
   background:color-mix(in srgb, var(--accent) 18%, transparent);
 }
+
 .meta{
   margin-top:10px;
   color:rgba(255,255,255,.72);
   font-size:13px;
-  line-height:1.45;
-  position:relative;
-  z-index:2;
 }
+
 .smallLine{
   height:3px;
   border-radius:999px;
   margin-top:14px;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
-  opacity:.8;
-  position:relative;
-  z-index:2;
 }
+
 .modules{
   margin-top:16px;
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
   gap:12px;
-  position:relative;
-  z-index:2;
 }
-@media (max-width:860px){
-  .modules{grid-template-columns:1fr}
-}
+
 .modBtn{
   display:block;
-  text-decoration:none;
-  color:inherit;
   background:rgba(17,17,17,.85);
   border:1px solid rgba(255,255,255,.10);
   border-radius:16px;
   padding:18px;
-  position:relative;
-  overflow:hidden;
-  transition:.18s ease;
+  text-decoration:none;
+  color:inherit;
   cursor:pointer;
-  min-height:180px;
+  transition:.18s ease;
 }
+
 .modBtn:hover{
-  background:rgba(26,26,26,.9);
   transform:translateY(-2px);
   border-color:rgba(255,255,255,.16);
 }
-.modBtn::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:radial-gradient(600px 120px at 20% 10%, var(--clubGlow), transparent 60%);
-  opacity:.55;
-}
-.modBtn::before{
-  content:"";
-  position:absolute;
-  left:-20%;
-  right:-20%;
-  top:-35%;
-  height:120px;
-  transform:rotate(-10deg);
-  background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.05), rgba(255,255,255,0));
-  opacity:0;
-  transition:opacity .22s ease;
-}
-.modBtn:hover::before{opacity:1}
-.modTop{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  align-items:flex-start;
-  position:relative;
-  z-index:2;
-}
+
 .modTitle{
   font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;
   font-size:28px;
   text-transform:uppercase;
-  letter-spacing:.6px;
-  margin:0;
-  color:#fff;
-  line-height:1.02;
 }
-.modTitle::after{
-  content:"";
-  display:block;
-  margin-top:8px;
-  height:4px;
-  width:100%;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--accent),transparent);
-  transform:scaleX(0);
-  transform-origin:left;
-  transition:.22s ease;
-}
-.modBtn:hover .modTitle::after{transform:scaleX(1)}
+
 .modDesc{
   margin-top:10px;
   color:rgba(255,255,255,.72);
   font-size:13px;
-  line-height:1.45;
-  position:relative;
-  z-index:2;
 }
+
 .iconBadge{
   width:42px;
   height:42px;
@@ -246,174 +187,122 @@ body{
   display:grid;
   place-items:center;
   border:1px solid rgba(255,255,255,.14);
-  background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 18%, transparent), rgba(255,255,255,.04));
-  color:#fff;
-  font-size:18px;
-  font-weight:900;
-  flex:0 0 auto;
+  background:rgba(255,255,255,.04);
 }
+
 .footNote{
   margin-top:14px;
   color:rgba(255,255,255,.50);
   font-size:12px;
-  position:relative;
-  z-index:2;
 }
 </style>
 </head>
 
 <body>
+
 <div class="stage">
-  <div class="wrap">
-    <div class="teamName" id="teamName">Session Planning</div>
-    <div class="sub" id="sub">Dashboard</div>
-    <div class="themeLine" aria-hidden="true"></div>
+<div class="wrap">
 
-    <div class="card">
-      <div class="hRow">
-        <h3 class="hTitle">Session Hub</h3>
-        <div class="pill accent">ALL IN ONE</div>
-      </div>
+<div class="teamName">Session Planning</div>
+<div class="sub">Coach Dashboard</div>
+<div class="themeLine"></div>
 
-      <div class="meta">
-        Build, review, and organize your session planning workflow from one place.
-      </div>
+<div class="card">
 
-      <div class="smallLine"></div>
+<div class="hRow">
+<h3 class="hTitle">Session Hub</h3>
+<div class="pill accent">3 Options</div>
+</div>
 
-      <div class="modules">
-        <a class="modBtn" href="javascript:void(0)" id="createBtn">
-          <div class="modTop">
-            <div>
-              <h2 class="modTitle">Create</h2>
-            </div>
-            <div class="iconBadge">+</div>
-          </div>
-          <div class="modDesc">
-            Start a brand new session plan and build out your practices from scratch.
-          </div>
-        </a>
+<div class="meta">
+Build, review, and organize your session planning workflow from one place.
+</div>
 
-        <a class="modBtn" href="javascript:void(0)" id="mySessionsBtn">
-          <div class="modTop">
-            <div>
-              <h2 class="modTitle">My Sessions</h2>
-            </div>
-            <div class="iconBadge">≡</div>
-          </div>
-          <div class="modDesc">
-            View your saved session plans, revisit previous work, and keep your ideas organized.
-          </div>
-        </a>
+<div class="smallLine"></div>
 
-        <a class="modBtn" href="javascript:void(0)" id="globalLibraryBtn">
-          <div class="modTop">
-            <div>
-              <h2 class="modTitle">Global Session Library</h2>
-            </div>
-            <div class="iconBadge">◎</div>
-          </div>
-          <div class="modDesc">
-            Browse a wider library layout area for club-wide or shared session content.
-          </div>
-        </a>
-      </div>
+<div class="modules">
 
-      <div class="footNote">
-      
-      </div>
-    </div>
-  </div>
+<a class="modBtn" href="javascript:void(0)" id="createBtn">
+<div class="modTop">
+<h2 class="modTitle">Create</h2>
+<div class="iconBadge">+</div>
+</div>
+<div class="modDesc">
+Start a brand new session plan and build out your practices from scratch.
+</div>
+</a>
+
+<a class="modBtn" href="javascript:void(0)" id="mySessionsBtn">
+<div class="modTop">
+<h2 class="modTitle">My Sessions</h2>
+<div class="iconBadge">≡</div>
+</div>
+<div class="modDesc">
+View your saved session plans, revisit previous work, and keep your ideas organized.
+</div>
+</a>
+
+<a class="modBtn" href="javascript:void(0)" id="globalLibraryBtn">
+<div class="modTop">
+<h2 class="modTitle">Global Session Library</h2>
+<div class="iconBadge">◎</div>
+</div>
+<div class="modDesc">
+Browse a wider library layout area for club-wide or shared session content.
+</div>
+</a>
+
+</div>
+
+<div class="footNote">
+ALL IN ONE
+</div>
+
+</div>
+</div>
 </div>
 
 <script>
-const CLUB_THEMES = {
-  default:    { accent:"#7B2EFF", accent2:"#B266FF", bgGlow:"rgba(123,46,255,.18)" },
-  cherrybrook:{ accent:"#C8102E", accent2:"#FF4B5C", bgGlow:"rgba(200,16,46,.20)" },
-  rumson:     { accent:"#FFFFFF", accent2:"#BDBDBD", bgGlow:"rgba(255,255,255,.10)" },
-  monmouth:   { accent:"#00E5FF", accent2:"#00A3FF", bgGlow:"rgba(0,229,255,.18)" }
-};
 
-function clean(v){ return String(v || "").trim(); }
+/* navigation helper */
 
-function applyTheme({ clubSlug, accent, accent2, glow, source }) {
-  const slug = String(clubSlug || "default").trim().toLowerCase();
-  const fallback = CLUB_THEMES[slug] || CLUB_THEMES.default;
-
-  const finalAccent  = clean(accent)  || fallback.accent;
-  const finalAccent2 = clean(accent2) || fallback.accent2 || finalAccent;
-  const finalGlow    = clean(glow)    || fallback.bgGlow;
-
-  const r = document.documentElement.style;
-  r.setProperty("--accent", finalAccent);
-  r.setProperty("--accent2", finalAccent2);
-  r.setProperty("--clubGlow", finalGlow);
-
-  console.log("🎨 THEME APPLIED:", {
-    slug,
-    accent: finalAccent,
-    accent2: finalAccent2,
-    glow: finalGlow,
-    source: source || "unknown"
-  });
-}
-
-function setHeader({ coachName }) {
-  const $teamName = document.getElementById("teamName");
-  const $sub = document.getElementById("sub");
-  if ($teamName) $teamName.textContent = "Session Planning";
-  if ($sub) $sub.textContent = String(coachName || "Coach Dashboard");
-}
-
-// hash fallback
-(function bootFromHash(){
-  const raw = (location.hash || "").replace(/^#/, "");
-  const params = new URLSearchParams(raw);
-
-  const clubSlug = params.get("clubSlug") || "default";
-  const coachName = params.get("coachName") || "Coach Dashboard";
-  const accent = params.get("accent") || "";
-  const accent2 = params.get("accent2") || "";
-  const glow = params.get("glow") || "";
-
-  setHeader({ coachName });
-  applyTheme({ clubSlug, accent, accent2, glow, source: "hash" });
-})();
-
-// postMessage theme support
-window.addEventListener("message", (ev) => {
-  const data = ev.data;
-  if (!data) return;
-
-  if (data.type === "SESSION_PLANNING_INIT") {
-    const clubSlug = data.clubSlug || "default";
-    const coachName = data.coachName || "Coach Dashboard";
-    const accent = data.theme?.accent || "";
-    const accent2 = data.theme?.accent2 || "";
-    const glow = data.theme?.glow || "";
-
-    setHeader({ coachName });
-    applyTheme({ clubSlug, accent, accent2, glow, source: "postMessage" });
+function requestNavigate(path){
+  try{
+    window.parent.postMessage({
+      type:"NAVIGATE_TO",
+      path:path
+    },"*");
+  }catch(e){
+    console.log("Navigation failed:",e);
   }
-});
+}
 
-// buttons intentionally not linked
-document.getElementById("createBtn")?.addEventListener("click", (e) => {
+/* CREATE BUTTON → SESSION BUILDER */
+
+document.getElementById("createBtn")?.addEventListener("click",(e)=>{
   e.preventDefault();
-  console.log("Create clicked");
+  requestNavigate("/sessionbuilder");
 });
 
-document.getElementById("mySessionsBtn")?.addEventListener("click", (e) => {
+/* other buttons unchanged */
+
+document.getElementById("mySessionsBtn")?.addEventListener("click",(e)=>{
   e.preventDefault();
   console.log("My Sessions clicked");
 });
 
-document.getElementById("globalLibraryBtn")?.addEventListener("click", (e) => {
+document.getElementById("globalLibraryBtn")?.addEventListener("click",(e)=>{
   e.preventDefault();
   console.log("Global Session Library clicked");
 });
 
-try { window.parent.postMessage({ type:"IFRAME_READY" }, "*"); } catch(_) {}
+/* iframe ready */
+
+try{
+  window.parent.postMessage({type:"IFRAME_READY"},"*");
+}catch(_){}
+
 </script>
+
 </body>
 </html>
